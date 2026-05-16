@@ -1,6 +1,6 @@
 # solver.py
 from typing import List, Tuple
-from structs import Consumer, Generator
+from src.structs import Consumer, Generator
 
 
 def min_cost_coverage(
