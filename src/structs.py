@@ -2,20 +2,19 @@
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List
 
 
 @dataclass
 class Consumer:
     name: str
-    hourly_demand: List[int]  # 24 значения - потребление в каждый час
+    hourly_demand: list[int]  # 24 значения - потребление в каждый час
 
 
 @dataclass
 class Generator:
     name: str
     type: str  # "solar" или "diesel"
-    hourly_output: List[int]  # 24 значения - генерация в каждый час
+    hourly_output: list[int]  # 24 значения - генерация в каждый час
     cost_per_kwh: int  # стоимость за кВт·ч
 
 @dataclass
@@ -23,8 +22,8 @@ class TestCase:
     source_file: str
     name: str
     description: str
-    consumers: List[Consumer]
-    generators: List[Generator]
+    consumers: list[Consumer]
+    generators: list[Generator]
     
     def total_consumers(self) -> int:
         return len(self.consumers)
@@ -70,7 +69,7 @@ def load_test_case(filepath: str) -> TestCase:
     )
 
 
-def validate_consumers_demands(consumers: List[Consumer]) -> bool:
+def validate_consumers_demands(consumers: list[Consumer]) -> bool:
     """Проверяет, что у всех потребителей неотрицательный спрос"""
     for c in consumers:
         if any(d < 0 for d in c.hourly_demand):

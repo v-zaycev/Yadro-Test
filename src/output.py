@@ -1,4 +1,3 @@
-from typing import List
 from src.structs import TestCase
 
 def print_test_header(test_case: TestCase, file_index: int, total_files: int):
@@ -20,7 +19,7 @@ def print_test_header(test_case: TestCase, file_index: int, total_files: int):
     print(f"{'=' * 145}")
 
 
-def print_hourly_stats_table(results: List[dict]):
+def print_hourly_stats_table(results: list[dict]):
     """
     Почасовая статистика: часы по строкам, параметры по столбцам.
     """
@@ -38,7 +37,7 @@ def print_hourly_stats_table(results: List[dict]):
     print(f"{'=' * 145}")
 
 
-def print_generators_schedule(results: List[dict], test_case: TestCase):
+def print_generators_schedule(results: list[dict], test_case: TestCase):
     """
     Транспонированная таблица работы генераторов.
     Строки - генераторы, столбцы - часы (0-23).
@@ -72,7 +71,7 @@ def print_generators_schedule(results: List[dict], test_case: TestCase):
     print(f"{'=' * 145}")
 
 
-def print_consumers_schedule(results: List[dict], test_case: TestCase):
+def print_consumers_schedule(results: list[dict], test_case: TestCase):
     """
     Транспонированная таблица работы потребителей.
     Строки - потребители, столбцы - часы (0-23).
@@ -106,7 +105,7 @@ def print_consumers_schedule(results: List[dict], test_case: TestCase):
     print(f"{'=' * 145}")
 
 
-def print_all_reports(results: List[dict], test_case: TestCase, file_index: int, total_files: int):
+def print_all_reports(results: list[dict], test_case: TestCase, file_index: int, total_files: int):
 
     print_test_header(test_case, file_index, total_files)
     

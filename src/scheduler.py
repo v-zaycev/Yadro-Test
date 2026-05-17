@@ -1,13 +1,12 @@
 # solver.py
-from typing import List, Tuple
 from src.structs import Consumer, Generator
 
 
 def min_cost_coverage(
     total_demand: int,
-    generators: List[Generator],
+    generators: list[Generator],
     hour: int
-) -> Tuple[List[int], int]:
+) -> tuple[list[int], int]:
     """
     ДП: минимальная стоимость покрытия total_demand.
     
@@ -61,10 +60,10 @@ def min_cost_coverage(
 
 
 def max_consumers_coverage(
-    consumers: List[Consumer],
-    generators: List[Generator],
+    consumers: list[Consumer],
+    generators: list[Generator],
     hour: int
-) -> Tuple[List[int], List[int], int]:
+) -> tuple[list[int], list[int], int]:
     """
     Перебор генераторов + жадный выбор потребителей (оптимально для максимизации количества).
     
@@ -90,8 +89,8 @@ def max_consumers_coverage(
 
 
 def schedule_hour(
-    consumers: List[Consumer],
-    generators: List[Generator],
+    consumers: list[Consumer],
+    generators: list[Generator],
     hour: int
 ) -> dict:
     """Решает задачу для одного часа"""

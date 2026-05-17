@@ -1,12 +1,11 @@
 # main.py
 import json
 from pathlib import Path
-from typing import List
 from src.structs import TestCase, load_test_case
 from src.scheduler import schedule_hour
 from src.output import *
 
-def run_simulation(test_case: TestCase) -> List[dict]:
+def run_simulation(test_case: TestCase) -> list[dict]:
     """
     Прогоняет симуляцию для всех 24 часов.
     
