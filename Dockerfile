@@ -5,7 +5,7 @@ WORKDIR /app
 # Копируем исходники
 COPY src/ ./src/
 COPY run.py .
-COPY test_cases/ ./test_cases/
+COPY tests/ ./tests/
 
 # Запуск
 ENTRYPOINT ["python", "run.py"]
