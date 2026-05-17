@@ -18,7 +18,6 @@ def run_simulation(test_case: TestCase) -> list[dict]:
     
     for hour in range(24):
         result = schedule_hour(consumers, generators, hour)
-        # Добавляем информацию о часе и суммарных показателях
         result['hour'] = hour
         result['total_demand'] = sum(c.hourly_demand[hour] for c in consumers)
         result['total_generation'] = sum(g.hourly_output[hour] for g in generators)
@@ -48,7 +47,6 @@ def main():
             results = run_simulation(test_case)
             
             print_all_reports(results, test_case, idx, len(json_files))
-            
             
         except Exception as e:
             print(f"Ошибка при обработке {json_file.name}: {e}")

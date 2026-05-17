@@ -1,7 +1,6 @@
 # solver.py
 from src.structs import Consumer, Generator
 
-
 def min_cost_coverage(
     total_demand: int,
     generators: list[Generator],

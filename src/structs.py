@@ -13,7 +13,7 @@ class Consumer:
 @dataclass
 class Generator:
     name: str
-    type: str  # "solar" или "diesel"
+    type: str  # "fixed" или "flexible"
     hourly_output: list[int]  # 24 значения - генерация в каждый час
     cost_per_kwh: int  # стоимость за кВт·ч
 
@@ -67,11 +67,3 @@ def load_test_case(filepath: str) -> TestCase:
         consumers=consumers,
         generators=generators
     )
-
-
-def validate_consumers_demands(consumers: list[Consumer]) -> bool:
-    """Проверяет, что у всех потребителей неотрицательный спрос"""
-    for c in consumers:
-        if any(d < 0 for d in c.hourly_demand):
-            return False
-    return True
