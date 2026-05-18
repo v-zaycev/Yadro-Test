@@ -43,11 +43,10 @@ def print_generators_schedule(results: list[dict], test_case: TestCase):
     1 - генератор включён, 0 - выключен.
     """
     generators = test_case.generators
-    n_gens = len(generators)
     n_hours = 24
     
     # Строим матрицу включений
-    matrix = [[0] * n_hours for _ in range(n_gens)]
+    matrix = [[0] * n_hours for _ in range(len(generators))]
     for hour, r in enumerate(results):
         for gen_idx in r['selected_generators']:
             matrix[gen_idx][hour] = 1

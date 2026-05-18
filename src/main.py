@@ -20,7 +20,7 @@ def run_simulation(test_case: TestCase) -> list[dict]:
         result = schedule_hour(consumers, generators, hour)
         result['hour'] = hour
         result['total_demand'] = sum(c.hourly_demand[hour] for c in consumers)
-        result['total_generation'] = sum(g.hourly_output[hour] for g in generators)
+        result['total_generation'] = sum(generators[i].hourly_output[hour] for i in result['selected_generators'])
         results.append(result)
     return results
 

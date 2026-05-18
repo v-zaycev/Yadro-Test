@@ -30,7 +30,7 @@ def min_cost_coverage(
     
     INF = 10**18
     costs = [0] + [INF] * (max_power)
-    last_added_gen = [-1] * (max_power + 1)
+    added_mask = [0] * (max_power + 1)
     
     for i, power, cost in items:
         if power == 0:
@@ -38,22 +38,17 @@ def min_cost_coverage(
         for m in range(max_power, power - 1, -1):
             if costs[m - power] != INF and costs[m - power] + cost < costs[m]:
                 costs[m] = costs[m - power] + cost
-                last_added_gen[m] = i
+                added_mask[m] = added_mask[m-power] | (1 << i)
 
-    
     # Ищем лучший вариант
     best_cost = INF
-    best_seq_end = INF
+    best_mask = 0
     for m in range(total_demand, max_power + 1):
         if costs[m] < best_cost:
             best_cost = costs[m]
-            best_seq_end = m
+            best_mask = added_mask[m]
     
-    best_indices = []
-    while best_seq_end != 0:
-        index = last_added_gen[best_seq_end]
-        best_indices.append(index)
-        best_seq_end = best_seq_end - items[index][1] # power
+    best_indices = [i for i in range(len(generators)) if (best_mask >> i) & 1]
 
     return best_indices, best_cost
 
