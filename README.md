@@ -13,7 +13,7 @@ Yadro-Test/
 │   ├── structs.py        # Dataclass-ы и загрузка JSON
 │   ├── scheduler.py      # Алгоритмы оптимизации (ДП)
 │   └── output.py         # Функции вывода результатов
-├── test_cases/           # Тестовые JSON-файлы
+├── tests/                # Тестовые JSON-файлы
 │   ├── deficit_partial_coverage.json
 │   ├── simple_fixed.json
 │   └── surplus_full_coverage.json
