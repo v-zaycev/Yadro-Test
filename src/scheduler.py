@@ -71,7 +71,7 @@ def max_consumers_coverage(
 
     total_demand = 0
     total_consumers = 0
-    while total_demand + demands[total_consumers][0] < max_power:
+    while total_consumers < len(demands) and total_demand + demands[total_consumers][0] < max_power:
         total_demand += demands[total_consumers][0]
         total_consumers += 1
 
