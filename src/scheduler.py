@@ -15,7 +15,7 @@ def min_cost_coverage(
         hour: час (0-23)
     
     Returns:
-        (min_cost, selected_indices)
+        (selected_indices, min_cost)
     """
     max_power = 0
     items = []
